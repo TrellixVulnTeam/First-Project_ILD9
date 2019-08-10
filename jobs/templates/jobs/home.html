@@ -1,0 +1,78 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    {% load staticfiles %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>My Project</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+
+    <!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+ </head>
+  <body>
+    <header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="{% url 'home' %}">Aditya Pampana</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+      <a class="nav-item nav-link active" href="https://www.linkedin.com/in/adityapampana">LinkedIn</a>
+      <a class="nav-item nav-link" href="{% static 'profile.pdf' %}">Resume</a>
+      <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blogs</a>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main role="main">
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">Aditya's Portfolio</h1>
+      <p class="lead text-muted">Hey I'm Aditya, this is my Django based project for Portfolio.</p>
+      <p>
+        <a href="mailto:aditya.pampana@gmail.com" class="btn btn-primary my-2">E-Mail</a>
+        <a href="https://wa.me/9676110986" class="btn btn-primary my-2">Whatapp</a>
+      </p>
+      <img src="{% static 'harvey.jpg' %}" height="200" width="200" />
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row">
+      	{% for job in jobs.all %}
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img class="card-img-top" src ="{{job.image.url}}" height="200" width="200" />
+            <div class="card-body">
+              <p class="card-text">{{job.summary}}</p>
+            </div>
+          </div>
+        </div>
+         {% endfor %}
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="text-muted">
+  <div class="container text-center">
+  	<p>®️ Aditya Pampana {% now "Y" %}</p>
+    <p class="float-right">
+      <a href="#">Back to top</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>
